@@ -283,7 +283,7 @@ export default function Home() {
             ].map((project, index) => (
               <motion.div key={index} variants={fadeInUp} className={`glass ${styles.projectCard}`}>
                 <div className={styles.projectImageWrapper}>
-                  <Image src={project.image} alt={project.title} fill className={styles.projectImage} />
+                  <Image src={project.image} alt={project.title} fill sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" className={styles.projectImage} />
                 </div>
                 <div className={styles.projectInfo}>
                   <span className={styles.projectCategory}>{project.category}</span>
