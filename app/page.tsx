@@ -14,8 +14,7 @@ import {
   Globe,
   Briefcase,
   MessageCircle,
-  ExternalLink,
-  Camera
+  ExternalLink
 } from "lucide-react";
 import styles from "./page.module.css";
 
@@ -206,39 +205,32 @@ export default function Home() {
           >
             {[
               {
-                image: "/service_graphic_tools.jpg",
-                title: "Graphic Design",
-                desc: "Graphic design that defines your brand."
+                title: "Website Design",
+                icon: <MonitorSmartphone size={32} />,
+                items: ["Custom business websites", "Portfolio websites", "Landing pages"]
               },
               {
-                image: "/service_sprite_ad.jpg",
-                title: "Product Advertising",
-                desc: "Creative and refreshing product advertisements."
+                title: "UI/UX Design",
+                icon: <PenTool size={32} />,
+                items: ["User interface design", "User experience strategy", "Wireframes and prototypes"]
               },
               {
-                image: "/service_burger_ad.jpg",
-                title: "Social Media Promotions",
-                desc: "Engaging and delicious social media graphics."
-              },
-              {
-                image: "/service_juice_ad.jpg",
-                title: "Packaging Design",
-                desc: "100% natural and eye-catching packaging design."
-              },
-              {
-                image: "/service_portfolio_poster.jpg",
-                title: "Portfolio Layouts",
-                desc: "Clear, intentional, and impossible to ignore visual identities."
+                title: "Brand & Graphics",
+                icon: <Palette size={32} />,
+                items: ["Brand identity creation", "Custom logo concepts", "Marketing & Social media"]
               }
             ].map((service, index) => (
-              <motion.div key={index} variants={fadeInUp} className={`glass ${styles.projectCard}`}>
-                <div className={styles.projectImageWrapper} style={{ paddingTop: '100%' }}>
-                  <Image src={service.image} alt={service.title} fill className={styles.projectImage} />
-                </div>
-                <div className={styles.projectInfo} style={{ padding: '1.5rem' }}>
-                  <h3 className={styles.projectTitle} style={{ marginBottom: '0.5rem' }}>{service.title}</h3>
-                  <p className={styles.projectDesc} style={{ marginBottom: 0, fontSize: '0.95rem' }}>{service.desc}</p>
-                </div>
+              <motion.div key={index} variants={fadeInUp} className={`glass ${styles.serviceCard}`}>
+                <div className={styles.serviceIcon}>{service.icon}</div>
+                <h3 className={styles.serviceTitle}>{service.title}</h3>
+                <ul className={styles.serviceList}>
+                  {service.items.map((item, i) => (
+                    <li key={i} className={styles.serviceItem}>
+                      <CheckCircle2 size={16} className={styles.serviceItemIcon} />
+                      {item}
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </motion.div>
@@ -268,25 +260,32 @@ export default function Home() {
           >
             {[
               {
-                image: "/ecommerce.png",
-                category: "Website Redesign",
-                title: "E-commerce Platform",
-                desc: "Redesigned an online store to improve user experience and increase conversions. Focused on usability, navigation, and visual appeal.",
-                tags: ["UI/UX", "Web Design", "E-commerce"]
+                image: "/project1.jpg",
+                category: "Graphic Design",
+                title: "Digital Art & Typography",
+                desc: "High-impact visual composition demonstrating advanced typography, tool integration, and striking layout techniques.",
+                tags: ["Photoshop", "Illustrator", "Typography"]
               },
               {
-                image: "/brand.png",
-                category: "Brand Identity",
-                title: "Startup Branding",
-                desc: "Created a complete logo and branding package for a tech startup. Delivered cohesive visual identity assets and brand guidelines.",
-                tags: ["Logo Design", "Branding", "Graphics"]
+                image: "/project2.jpg",
+                category: "Product Marketing",
+                title: "Sprite Fresh Campaign",
+                desc: "Refreshing beverage advertisement featuring dynamic splashing effects, crisp typography, and vibrant green color grading.",
+                tags: ["Advertising", "Photo Manipulation", "Branding"]
               },
               {
-                image: "/mobile.png",
-                category: "Mobile App",
-                title: "Productivity App UI",
-                desc: "Designed intuitive user interfaces and user flows for a productivity application. Focused on accessibility, simplicity, and user engagement.",
-                tags: ["Mobile UI", "UX Research", "Figma"]
+                image: "/project3.jpg",
+                category: "Food & Beverage",
+                title: "Burger Promo Ad",
+                desc: "Mouth-watering promotional graphic for a local burger joint, utilizing strong contrasting colors and bold typography.",
+                tags: ["Social Media", "Marketing", "Graphic Design"]
+              },
+              {
+                image: "/project4.jpg",
+                category: "Product Packaging",
+                title: "Natural Orange Juice",
+                desc: "Clean and vibrant packaging presentation for a 100% natural fruit juice, emphasizing freshness and minimalist aesthetics.",
+                tags: ["Packaging", "Product Design", "Branding"]
               }
             ].map((project, index) => (
               <motion.div key={index} variants={fadeInUp} className={`glass ${styles.projectCard}`}>
@@ -354,7 +353,7 @@ export default function Home() {
               <div>
                 <h3 style={{ fontSize: "1.1rem", marginBottom: "1rem" }}>Follow Me</h3>
                 <div className={styles.socialLinks}>
-                  <a href="#" className={styles.socialLink}><Camera size={20} /></a>
+                  <a href="#" className={styles.socialLink}><Globe size={20} /></a>
                   <a href="#" className={styles.socialLink}><Briefcase size={20} /></a>
                   <a href="#" className={styles.socialLink}><MessageCircle size={20} /></a>
                 </div>
